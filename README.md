@@ -1,16 +1,16 @@
 # Mayan Swift Demo 
 
-This guide explains how to integrate the Wormhole Mayan Swift Route from the Wormhole SDK into your application. This Route abstracts the complexity of cross-chain token swaps, handling route discovery, fee estimation, and transaction construction.
+This guide explains how to integrate the Wormhole Mayan Swift Route from the Wormhole SDK into your application. These Route abstract the complexity of cross-chain token swaps, handling route discovery, fee estimation, and transaction construction.
 
 > [!IMPORTANT]
-> Mayan Swap only works on **mainnet**. Testing on testnet environments will fail.
+> Mayan Swap only works on **Mainnet**. Testing on testnet environments will fail.
 
 ## Prerequisites
 
 Ensure you have the following installed:
 
 - [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) installed on your machine
-- A wallet with a private key, funded with native tokens on mainnet for gas fees
+- A wallet with a private key, funded with native tokens on Mainnet for gas fees
 
 ## Setup and Usage
 
