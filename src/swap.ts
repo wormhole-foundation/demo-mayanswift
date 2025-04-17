@@ -7,7 +7,11 @@ import { SolanaPlatform } from "@wormhole-foundation/sdk-solana";
 import {
   MayanRouteSWIFT,
 } from '@mayanfinance/wormhole-sdk-route';
+import dotenv from "dotenv";
 import { getSigner } from "./helpers";
+
+// Initialize dotenv
+dotenv.config();
 
 (async function () {
   // Setup
@@ -49,7 +53,7 @@ import { getSigner } from "./helpers";
 
   // Specify the amount as a decimal string
   const transferParams = {
-    amount: "0.01",
+    amount: "0.0001",
     options: bestRoute.getDefaultOptions(),
   };
 
