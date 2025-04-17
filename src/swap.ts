@@ -7,11 +7,7 @@ import { SolanaPlatform } from "@wormhole-foundation/sdk-solana";
 import {
   MayanRouteSWIFT,
 } from '@mayanfinance/wormhole-sdk-route';
-import dotenv from "dotenv";
 import { getSigner } from "./helpers";
-
-// Initialize dotenv
-dotenv.config();
 
 (async function () {
   // Setup
@@ -29,9 +25,6 @@ dotenv.config();
   const resolver = wh.resolver([MayanRouteSWIFT]);
 
   // Show supported tokens
-  const srcTokens = await resolver.supportedSourceTokens(sendChain);
-  console.log(srcTokens.slice(0, 5));
-
   const dstTokens = await resolver.supportedDestinationTokens(
     source,
     sendChain,
