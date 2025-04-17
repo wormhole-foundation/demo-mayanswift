@@ -29,9 +29,6 @@ dotenv.config();
   const resolver = wh.resolver([MayanRouteSWIFT]);
 
   // Show supported tokens
-  const srcTokens = await resolver.supportedSourceTokens(sendChain);
-  console.log(srcTokens.slice(0, 5));
-
   const dstTokens = await resolver.supportedDestinationTokens(
     source,
     sendChain,
@@ -56,7 +53,7 @@ dotenv.config();
 
   // Specify the amount as a decimal string
   const transferParams = {
-    amount: "0.01",
+    amount: "0.0001",
     options: bestRoute.getDefaultOptions(),
   };
 
