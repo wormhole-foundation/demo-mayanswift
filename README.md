@@ -34,12 +34,12 @@ npm install
 Create a `.env` file in the root directory and add your private keys:
 
 ```bash
-ETH_PRIVATE_KEY="INSERT_PRIVATE_KEY"
-SOL_PRIVATE_KEY="INSERT_PRIVATE_KEY"
+MAINNET_ETH_PRIVATE_KEY="INSERT_PRIVATE_KEY"
+MAINNET_SOL_PRIVATE_KEY="INSERT_PRIVATE_KEY"
 ```
 
-- **ETH_PRIVATE_KEY** - private key for an Ethereum-compatible wallet
-- **SOL_PRIVATE_KEY** - private key for a Solana wallet
+- **MAINNET_ETH_PRIVATE_KEY** - private key for an Ethereum-compatible wallet 
+- **MAINNET_SOL_PRIVATE_KEY** - private key for a Solana wallet
 
 ## Mayan Swift Swap
 
@@ -54,7 +54,8 @@ npm run swap
 You can customize the following options within the scripts:
 
 - **Source and Destination Chains** - modify `sendChain` and `destChain` in `swap.ts`
-- **Amount and Transfer Settings** - adjust `amount` to suit your needs
+- **Destination Address** - update `destAddress` in `swap.ts`
+- **Amount and Transfer Settings** - adjust `amount` to suit your needs (currently 0.001)
 
 ## Troubleshooting
 
