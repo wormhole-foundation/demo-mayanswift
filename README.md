@@ -3,14 +3,14 @@
 This guide explains how to integrate the Wormhole Mayan Swift Route from the Wormhole SDK into your application. This Route abstracts the complexity of cross-chain token swaps, handling route discovery, fee estimation, and transaction construction.
 
 > [!IMPORTANT]
-> Mayan Swap only works on **mainnet**. Testing on testnet environments will fail.
+> Mayan Swap only works on **Mainnet**. Testing on testnet environments will fail.
 
 ## Prerequisites
 
 Ensure you have the following installed:
 
 - [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) installed on your machine
-- A wallet with a private key, funded with native tokens on mainnet for gas fees
+- A wallet with a private key, funded with native tokens on Mainnet for gas fees
 
 ## Setup and Usage
 
@@ -34,12 +34,12 @@ npm install
 Create a `.env` file in the root directory and add your private keys:
 
 ```bash
-ETH_PRIVATE_KEY="INSERT_PRIVATE_KEY"
-SOL_PRIVATE_KEY="INSERT_PRIVATE_KEY"
+MAINNET_ETH_PRIVATE_KEY="INSERT_PRIVATE_KEY"
+MAINNET_SOL_PRIVATE_KEY="INSERT_PRIVATE_KEY"
 ```
 
-- **ETH_PRIVATE_KEY** - private key for an Ethereum-compatible wallet
-- **SOL_PRIVATE_KEY** - private key for a Solana wallet
+- **MAINNET_ETH_PRIVATE_KEY** - private key for an Ethereum-compatible wallet 
+- **MAINNET_SOL_PRIVATE_KEY** - private key for a Solana wallet
 
 ## Mayan Swift Swap
 
@@ -54,7 +54,8 @@ npm run swap
 You can customize the following options within the scripts:
 
 - **Source and Destination Chains** - modify `sendChain` and `destChain` in `swap.ts`
-- **Amount and Transfer Settings** - adjust `amount` to suit your needs
+- **Destination Address** - update `destAddress` in `swap.ts`
+- **Amount and Transfer Settings** - adjust `amount` to suit your needs (currently 0.001)
 
 ## Troubleshooting
 

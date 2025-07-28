@@ -19,6 +19,7 @@ dotenv.config();
 
   const sendChain = wh.getChain("Base");
   const destChain = wh.getChain("Solana");
+  const destAddress = Wormhole.chainAddress(destChain.chain, "<TODO>");
 
   // Doing transaction of native ETH on Ethereum to native SOL on Solana
   const source = Wormhole.tokenId(sendChain.chain, "native");
@@ -38,7 +39,6 @@ dotenv.config();
 
   // Pull private keys from env for testing purposes
   const sender = await getSigner(sendChain);
-  const receiver = await getSigner(destChain);
 
   // Creating a transfer request fetches token details
   // since all routes will need to know about the tokens
@@ -53,7 +53,7 @@ dotenv.config();
 
   // Specify the amount as a decimal string
   const transferParams = {
-    amount: "0.0001",
+    amount: "0.001",
     options: bestRoute.getDefaultOptions(),
   };
 
@@ -77,14 +77,14 @@ dotenv.config();
     tr,
     sender.signer,
     quote,
-    receiver.address
+    destAddress
   );
   console.log("Initiated transfer with receipt: ", receipt);
 
   await routes.checkAndCompleteTransfer(
     bestRoute,
     receipt,
-    receiver.signer,
+    undefined,
     15 * 60 * 1000
   );
 })();
