@@ -15,7 +15,14 @@ dotenv.config();
 
 (async function () {
   // Setup
-  const wh = new Wormhole("Mainnet", [EvmPlatform, SolanaPlatform]);
+  const wh = new Wormhole("Mainnet", [EvmPlatform, SolanaPlatform], {
+    chains: {
+      Ethereum: { rpc: process.env.ETHEREUM_MAINNET_RPC! }, // e.g. https://ethereum-rpc.publicnode.com
+      Solana: {
+        rpc: process.env.SOLANA_MAINNET_RPC ?? "https://api.mainnet-beta.solana.com",
+      },
+    },
+  });
 
   const sendChain = wh.getChain("Base");
   const destChain = wh.getChain("Solana");

@@ -8,6 +8,8 @@ import {
   } from "@wormhole-foundation/sdk-connect";
   import { getEvmSignerForKey } from "@wormhole-foundation/sdk-evm";
   import { getSolanaSigner } from "@wormhole-foundation/sdk-solana";
+  import { JsonRpcProvider } from "ethers";
+  import { config as dotenv } from "dotenv"; dotenv(); 
 
 // Helper function to get environment variables
 function getEnv(key: string): string {
@@ -43,8 +45,10 @@ export async function getSigner<N extends Network, C extends Chain>(
       );
       break;
     case "Evm":
+      const rpcUrl = process.env.ETHEREUM_MAINNET_RPC;
+      const rpc = new JsonRpcProvider(rpcUrl, { chainId: 1, name: "mainnet" });
       signer = await getEvmSignerForKey(
-        await chain.getRpc(),
+        rpc,
         getEnv("MAINNET_ETH_PRIVATE_KEY")
       );
       break;
